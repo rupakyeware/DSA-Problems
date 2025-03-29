@@ -1,3 +1,5 @@
+// Popular interview question: check how many times a sorted array was rotated
+
 #include<bits/stdc++.h>
 #define int long long
 #define endl '\n'
