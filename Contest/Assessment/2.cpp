@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+#define int long long
+#define endl '\n'
+using namespace std;
+
+void solve() {
+    string s; cin >> s;
+
+    for(int i = s.size() - 1; i >= 0; i--) {
+        cout << s[i] << ' ';
+    } cout << endl;
+}
+
+signed main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
+
+    int _t;
+    cin >> _t;
+
+    while(_t--) solve();
+    return 0;
+}
