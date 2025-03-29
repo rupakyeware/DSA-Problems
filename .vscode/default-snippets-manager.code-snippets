@@ -1,4 +1,13 @@
 {
+	"vector": {
+		"prefix": "vec",
+		"description": "",
+		"scope": "",
+		"body": [
+			"vector<int> v(n);",
+			""
+		]
+	},
 	"solve": {
 		"prefix": "solve",
 		"description": "solve",
