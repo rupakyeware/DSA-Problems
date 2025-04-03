@@ -6,7 +6,7 @@
 		"body": [
 			"while(lo <= hi) {",
 			"    int mid = lo + (hi - lo) / 2;",
-			"    if(check(v, n, k, mid) == 1) {",
+			"    if(check() == 1) {",
 			"        hi = mid - 1;",
 			"        ans = mid;",
 			"    }",
