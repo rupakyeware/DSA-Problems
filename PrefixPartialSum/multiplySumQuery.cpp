@@ -1,37 +1,34 @@
-#include<bits/stdc++.h>
+#include "../stdc++.h"
 #define int long long
 #define endl '\n'
-using namespace std;
-
 const int MOD = 1e9 + 7;
+using namespace std;
 
 void solve() {
     int n, q; cin >> n >> q;
     vector<int> v(n);
+    for(int i = 0; i < n; i++) cin >> v[i];
 
-    for(int i = 0; i < n; i++) {
-        cin >> v[i];
+    // Prefix sum of v[i]
+    vector<int> prefix_a(n+1, 0);
+    for(int i = 1; i <= n; i++) {
+        prefix_a[i] = ((prefix_a[i-1] % MOD) + (v[i-1]) % MOD) % MOD;
     }
 
-    vector<int> a(n + 1, 0);
-    vector<int> b(n + 1, 0);
+    // Prefix sum of v[i] * i;
+    vector<int> prefix_b(n+1, 0);
+    for(int i = 1; i <= n; i++) {
+        prefix_b[i] = ((prefix_b[i-1] % MOD) + (v[i-1] * i) % MOD) % MOD;
+    }
 
-    // for(int i = 1; i <= n; i++) {
-    //     a[i] = ((a[i] % MOD) + (v[i] % MOD)) % MOD;
+    while(q--) {
+        int l, r; cin >> l >> r;
+        int ans = prefix_b[r] - prefix_b[l-1]; // This will give us (v[l] * l) + (v[l] * (l+1)) etc.
+        ans -= (l-1) * (prefix_a[r] - prefix_a[l-1]); // Then after some calculation that I didn't really understand much we get the correct answer
+        ans = (ans % MOD + MOD) % MOD;
+        cout << ans << endl;
+    }
     
-    // for(int i = 1; i <= n; i++) {
-    //     b[i] = (b[i-1] + v[i]) % * i;
-    // }
-
-    // for(int i = 0; i <= n; i++) cout << a[i] << " "; cout << endl;
-    // for(int i = 0; i <= n; i++) cout << b[i] << " ";
-
-    // while(q--) {
-    //     int l, r; cin >> l >> r;
-    //     int ans_b = ((b[r] % MOD) - (b[l-1] % MOD) + MOD) % MOD;
-    //     int ans_a = (1 - l)*(((a[r] % MOD) - (a[l-1] % MOD) + MOD) % MOD);
-    //     cout << (ans_b % MOD) + (ans_a % MOD) << endl;
-    // }    
 }
 
 signed main() {
