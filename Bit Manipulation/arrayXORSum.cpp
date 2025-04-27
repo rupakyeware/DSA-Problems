@@ -21,6 +21,8 @@ void solve() {
 
     int ans = 0; // Sum of XORs of all pairs
     int multiplier = 1; // Power of 2 at each level (2^0, 2^1, etc)
+    // Another way to find the power easily would be to use (1 << i). 
+    
     for(int i = 0; i < limit; i++) {
         int count1s = 0; // Keep a track of the no. of 1s at current level
 
